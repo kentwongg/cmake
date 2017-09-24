@@ -5,6 +5,9 @@ add_definitions(
   -g
   -O2
 )
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/bin)
 #Get GLFW
 macro(getGLFW)
@@ -18,5 +21,6 @@ if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/glfw)
 endif()
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/glfw)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/glfw/include)
-add_executable(triangle ${CMAKE_CURRENT_SOURCE_DIR}/src/boilerplate.cpp)
-target_link_libraries(triangle glfw ${GLFW_LIBRARIES} ${OPENGL_gl_LIBRARY})
+add_executable(triangle ${CMAKE_CURRENT_SOURCE_DIR}/src/boilerplate.cpp) #arg1 is file name #arg2 is source
+target_link_libraries(triangle glfw ${GLFW_LIBRARIES} ${OPENGL_gl_LIBRARY}) #arg1 is file name #arg2 is libary 
+
